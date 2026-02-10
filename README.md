@@ -1,6 +1,6 @@
 # securek8s-lab
 Kubernetes security lab — RBAC, network policies, admission control, container image scanning, and runtime threat detection for a containerized SIEM stack.
-
+```mermaid
 flowchart TB
     %% ===== Cluster Boundary =====
     subgraph CLUSTER["Kind Cluster (securelab)"]
@@ -67,3 +67,4 @@ flowchart TB
     class Prom,Graf,Loki,FB,AM,KSM,NE,NGINX service
     class RBAC,CALICO,PSS,QUOTA,AUDIT security
     class NP warning
+```
