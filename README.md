@@ -1,7 +1,21 @@
 # SecureK8s Lab
 
-Kubernetes security lab — RBAC, network policies, admission control, container image scanning, and runtime threat detection for a containerized SIEM stack.
+Hands-on Kubernetes security lab that demonstrates cluster hardening, observability, and threat detection for a containerized SIEM stack using real-world controls and production-inspired tooling. The lab is built from scratch to simulate how security teams protect, monitor, and validate workloads in modern Kubernetes environments, with all configurations version-controlled and mapped to industry frameworks.
 
+---
+## Key points
+
+* Built from scratch with Kind and Calico
+
+* Implements RBAC, network policies, Pod Security Standards, and admission controls
+
+* Adds resource quotas and API server audit logging for hardening
+
+* Deploys a full monitoring stack via Helm (Prometheus, Grafana, Loki, Fluent Bit)
+
+* Maps security controls to NIST 800-53
+
+* Version-controlled configs with documented testing and results
 ---
 
 ## Architecture
