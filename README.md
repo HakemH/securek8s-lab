@@ -6,41 +6,7 @@ Kubernetes security lab — RBAC, network policies, admission control, container
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    Kind Cluster (securelab)                      │
-│                                                                  │
-│  ┌──────────────────────────────────────────────────────────┐   │
-│  │                  monitoring namespace                      │   │
-│  │                                                            │   │
-│  │  Prometheus ──► Grafana ◄── Loki ◄── Fluent Bit           │   │
-│  │       │                                  │                 │   │
-│  │  Alertmanager    Kube-State-Metrics   (DaemonSet           │   │
-│  │                  Node-Exporter         on all nodes)       │   │
-│  └──────────────────────────────────────────────────────────┘   │
-│                          │ blocked by                            │
-│                          │ Network Policy                        │
-│  ┌──────────────────────────────────────────────────────────┐   │
-│  │                 app-workloads namespace                     │   │
-│  │                                                            │   │
-│  │  nginx (resource-limited, monitored)                       │   │
-│  │  Pod Security: restricted                                  │   │
-│  └──────────────────────────────────────────────────────────┘   │
-│                                                                  │
-│  ┌──────────────────────────────────────────────────────────┐   │
-│  │                   Security Controls                        │   │
-│  │                                                            │   │
-│  │  RBAC ─ 3 roles (analyst, deployer, admin)                │   │
-│  │  Network Policies ─ Calico CNI, default-deny              │   │
-│  │  Pod Security Standards ─ restricted enforcement          │   │
-│  │  Resource Quotas ─ per-namespace limits                   │   │
-│  │  Audit Logging ─ API server event capture                 │   │
-│  └──────────────────────────────────────────────────────────┘   │
-│                                                                  │
-│  Nodes: 1 control-plane + 2 workers                             │
-│  CNI: Calico (network policy enforcement)                       │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Architecture](images/Architecture.png)
 
 ---
 
