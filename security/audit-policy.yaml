@@ -1,0 +1,26 @@
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+  - level: RequestResponse
+    resources:
+      - group: ""
+        resources: ["secrets"]
+    verbs: ["get", "list", "create", "update", "delete"]
+  - level: RequestResponse
+    resources:
+      - group: ""
+        resources: ["pods/exec"]
+    verbs: ["create"]
+  - level: Request
+    resources:
+      - group: "rbac.authorization.k8s.io"
+        resources: ["roles", "rolebindings", "clusterroles", "clusterrolebindings"]
+    verbs: ["create", "update", "delete"]
+  - level: Metadata
+    resources:
+      - group: ""
+        resources: ["pods", "services", "configmaps"]
+  - level: None
+    resources:
+      - group: ""
+        resources: ["endpoints", "events"]
